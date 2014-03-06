@@ -46,5 +46,5 @@ end
 # ==========================================
 def send_tweet(client, name)
   puts "Tweet enviado para @thiago_kazu"
-  client.update("@thiago_kazu Alerta! #{name} está no TT #{Time.now}" )
+  client.update("@thiago_kazu Alerta! [#{name}] está no TT #{Time.now}" )
 end
