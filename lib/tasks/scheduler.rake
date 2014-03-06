@@ -13,9 +13,9 @@ task :update_feed => :environment do
     client.trends(local[1]).each do |t|
       puts t.name
 
-      if t.name.include?('tim') || t.name.include?('Justin') || t.name.include?('tim beta')
-        puts "ACHOU!!!! - #{t.name}"
-        send_tweet(client)
+      if t.include?('Audax') || t.include?('timbeta')
+        puts "ACHOU!!!! - "
+        send_tweet(client, t.name)
       end   
 
     end
@@ -44,7 +44,7 @@ end
 
 # SEND TWEET
 # ==========================================
-def send_tweet(client)
+def send_tweet(client, name)
   puts "Tweet enviado para @thiago_kazu"
-  client.update("@thiago_kazu Alerta! TIM beta está no TT #{Time.now}" )
+  client.update("@thiago_kazu Alerta! #{name} está no TT #{Time.now}" )
 end
