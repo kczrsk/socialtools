@@ -13,7 +13,7 @@ task :update_feed => :environment do
     client.trends(local[1]).each do |t|
       puts t.name
 
-      if t.name.include?('Audax') || t.name.include?('timbeta')
+      if t.name.downcase.include?('tim') || t.name.downcase.include?('timbeta')
         puts "ACHOU!!!! - "
         send_tweet(client, t.name)
       end   
